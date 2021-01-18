@@ -45,7 +45,7 @@
 100% {
     opacity:1;
 }
-}
+} 
 
 @-ms-keyframes fadeIn {
 0% {
@@ -103,7 +103,6 @@
   margin: 15px 0 0;
   color: #e97451;
   font-size: 15px;
-  display: none;
 }
 
 body {
