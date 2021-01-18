@@ -9,7 +9,7 @@ $(document).ready(function(){
 
         if( username != "" && password != "" ){
             $.ajax({
-                url: 'https://localhost:5001/login',
+                url: 'https://localhost:44349/login',
                 dataType: 'json',
                 type: 'post',
                 contentType: 'application/json',
@@ -21,8 +21,10 @@ $(document).ready(function(){
                     } else {
                         $("#error").css("display","block");
                     }
-              }
-            })
+                }                
+            }).fail( function( jqXHR, textStatus, errorThrown ) {
+                $("#errorbd").css("display","block");
+            });
         } else {
             $('#campos_vacios').css("display","block");
         }

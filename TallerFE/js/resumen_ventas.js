@@ -4,7 +4,7 @@ Please consider that the JS part isn't production ready at all, I just code it t
 $(document).ready(function(){
 
     $.ajax({
-        url: 'https://localhost:5001/venta',
+        url: 'https://localhost:443491/venta',
         dataType: 'json',
         type: 'get',
         contentType: 'application/json',
@@ -30,6 +30,8 @@ $(document).ready(function(){
         
         	    });
         }
+    }).fail( function( jqXHR, textStatus, errorThrown ) {
+        $("#errorbd").css("display","block");
     });
 
     $('#limpiar_filtros').on('click',function(){
