@@ -25,7 +25,7 @@ $(document).ready(function(){
             }).fail( function( jqXHR, textStatus, errorThrown ) {
                 $("#errorbd").css("display","block");
             });
-        } else {
+        }else {
             $('#campos_vacios').css("display","block");
         }
     });

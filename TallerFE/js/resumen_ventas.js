@@ -2,9 +2,18 @@
 Please consider that the JS part isn't production ready at all, I just code it to show the concept of merging filters and titles together !
 */
 $(document).ready(function(){
+    
+    var tablaCheck = function(){
+        if($('.columnita').length == 0){
+            $("#no-result").css("display","block");
+        }else{
+            $("#no-result").css("display","none");
+        }
+    }
+
 
     $.ajax({
-        url: 'https://localhost:443491/venta',
+        url: 'https://localhost:44349/venta',
         dataType: 'json',
         type: 'get',
         contentType: 'application/json',
@@ -28,7 +37,8 @@ $(document).ready(function(){
                         
                 
         
-        	    });
+                });
+                tablaCheck();
         }
     }).fail( function( jqXHR, textStatus, errorThrown ) {
         $("#errorbd").css("display","block");
@@ -81,7 +91,13 @@ $(document).ready(function(){
         $filteredRows.hide();
         /* Prepend no-result row if all rows are filtered */
         if ($filteredRows.length === $rows.length) {
-            $tabla.find('.filterable').prepend($('<div class="col m-2 columnita no-result text-center">Sin coincidencias</div>'));
+            $("#no-result").css("display","block");
+        }else{
+            $("#no-result").css("display","none");
         }
     });
+
+    
+    
+    tablaCheck();
 });

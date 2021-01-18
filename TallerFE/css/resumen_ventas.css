@@ -80,10 +80,10 @@ iframe {
 }
 
 .message {
+  display: none;
   margin: 15px 0 0;
   color: #e97451;
   font-size: 15px;
-  display: none;
   
 }
 
