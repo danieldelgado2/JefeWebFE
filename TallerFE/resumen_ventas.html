@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Proyecto Concesionario</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/resumen_ventas.css">
+	<link href="https://unpkg.com/bootstrap-table@1.18.1/dist/bootstrap-table.min.css" rel="stylesheet">
+
+	<!--===============================================================================================-->
+
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 filterable p-4">
+					<div class="d-flex justify-content-center text-white m-2">
+						<h1 id="bienvenido">Bienvenido Fulano</h1>
+					</div>
+					<div class="d-flex justify-content-center text-white m-4">
+						<h3 class="titulo">Aquí tienes el resumen de ventas por trabajador</h3>
+					</div>
+					<div class="container filterable">
+						<div class="row m-1 titulos">
+							<!-- <div class="col">
+								Usuario
+							</div> -->
+							<div class="col">
+								Nombre
+							</div>
+							<div class="col">
+								Apellidos
+							</div>
+							<div class="col">
+								E-mail
+							</div>
+							<div class="col">
+								Facturación
+							</div>
+							<div class="col"></div>
+						</div>
+						<div class="row m-1 filters">
+							<!-- <div class="col">
+								<input type="text" class="form-control">
+							</div> -->
+							<div class="col">
+								<input type="text" class="form-control">
+							</div>
+							<div class="col">
+								<input type="text" class="form-control">
+							</div>
+							<div class="col">
+								<input type="text" class="form-control">
+							</div>
+							<div class="col">
+								<input type="text" class="form-control">
+							</div>
+							
+							<div class="col">
+								<button id="limpiar_filtros" class="btn">Limpiar filtros</button>
+							</div>
+						</div>
+						<div class="resultados m-2"></div>
+					</div>
+					
+				
+
+					
+					<!-- <button class="btn btn-danger" onclick="logout()">Logout</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/resumen_ventas.js"></script>
+
+</body>
+
+</html>
+
+
+
+<!-- <table class="tabla">
+	<thead>
+		<tr class="table100-head filters ">
+			<th class="column"><input type="text" class="form-control" placeholder="Usuario"></th>
+			<th class="column"><input type="text" class="form-control" placeholder="Nombre"></th>
+			<th class="column"><input type="text" class="form-control" placeholder="Apellidos"></th>
+			<th class="column"><input type="text" class="form-control" placeholder="E-mail"></th>
+			<th class="column"><input type="text" class="form-control" placeholder="Facturación"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="column">2017-09-29 01:22</td>
+			<td class="column">200398</td>
+		</tr>
+
+
+
+	</tbody>
+</table> -->
