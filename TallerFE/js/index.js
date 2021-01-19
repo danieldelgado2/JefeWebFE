@@ -27,7 +27,7 @@ const Index = function () {
             //Comprobación de que no esten vacios los campos
             if ($username != "" && $password != "") {
                 $.ajax({
-                    url: 'https://localhost:44349/login',
+                    url: 'https://localhost:5001/login',
                     dataType: 'json',
                     type: 'post',
                     contentType: 'application/json',

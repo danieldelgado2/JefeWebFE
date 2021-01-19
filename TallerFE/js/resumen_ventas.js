@@ -29,7 +29,7 @@ const Ventas = function () {
         const $results = $('.resultados');
 
         $.ajax({
-            url: 'https://localhost:44349/venta',
+            url: 'https://localhost:5001/venta',
             dataType: 'json',
             type: 'get',
             contentType: 'application/json',
