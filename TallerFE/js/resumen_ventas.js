@@ -44,7 +44,7 @@ const Ventas = function () {
                         $('<div class="col m-2 columnita">').text(item.email),
                         $('<div class="">'),
                         $('<div class="col m-2 columnita">').text(item.importe + "€"),
-                        $('<div class="col m-2 columnita">')
+                        $('<div class="col m-2 columnita"><button class="btn btn-info">Ver empleado</button>"')
                     );
 
                     $results.append($div);
@@ -112,6 +112,8 @@ const Ventas = function () {
         });
     }
 
+    
+
     return {
         init: function () {
             handler();
@@ -119,6 +121,13 @@ const Ventas = function () {
     };
 }();
 
+function volver(){
+    window.location.href = "dashboard.html";
+}
+
+function logOut(){
+    window.location.href = "index.html";
+}
 
 
 

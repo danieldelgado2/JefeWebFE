@@ -11,6 +11,7 @@ const Index = function () {
         //Divs de errores
         const $error = $("#error");
         const $errorbd = $("#errorbd");
+        const $error_permiso = $("#error_permiso");
         const $empty = $("#campos_vacios");
 
         $("#acceder").click(function (e) {
@@ -22,7 +23,9 @@ const Index = function () {
             //Se ocultan todos los errores
             $error.addClass('d-none');
             $errorbd.addClass('d-none');
+            $error_permiso.addClass('d-none');
             $empty.addClass('d-none');
+            
             
             //Comprobación de que no esten vacios los campos
             if ($username != "" && $password != "") {
@@ -33,11 +36,17 @@ const Index = function () {
                     contentType: 'application/json',
                     data: JSON.stringify({ login: $username, password: $password }),
                     success: function (data, status) {
-                        
-                        if (data) {
-                            window.location.href = "resumen_ventas.html";
-                        } else {
+
+                        if (data==null) {
                             $error.toggleClass('d-none');
+                        } else if(data.tipo != "jefe"){
+                            $error_permiso.toggleClass('d-none');
+                        } else {
+                            localStorage.setItem("nombre", data.nombre);
+                            localStorage.setItem("email", data.email);
+                            localStorage.setItem("apellidos", data.apellidos);
+                            localStorage.setItem("login", data.login);   
+                            window.location.href = "dashboard.html";
                         }
 
                     }
