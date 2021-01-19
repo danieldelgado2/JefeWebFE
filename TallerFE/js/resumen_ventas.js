@@ -1,87 +1,113 @@
-var Ventas = function(){
+const Ventas = function () {
 
-    var handler = function (json) {
+    const handler = function (json) {
         _listado();
         _limpiarFiltros();
         _controlFiltros();
     };
 
-    var _tablaCheck = function(){
+    /*
+    *Control de que haya resultados en la tabla
+    */
+    const _tablaCheck = function () {
 
-        if($('.columnita').length == 0){
-            $("#no-result").css("display","block");
-        }else{
-            $("#no-result").css("display","none");
+        const $empty = $("#no-result");
+
+        if ($('.columnita').length == 0) {
+            $empty.removeClass("d-none");
+        } else {
+            $empty.addClass("d-none");
         }
     }
 
-    var _listado = function(){
+    /*
+    * Devuelve un listado de las ventas
+    */
+    const _listado = function () {
+
+        const $errorbd = $("#errorbd");
+        const $results = $('.resultados');
 
         $.ajax({
             url: 'https://localhost:44349/venta',
             dataType: 'json',
             type: 'get',
             contentType: 'application/json',
-            success: function(data, status){
+            success: function (data, status) {
                 //Por cada elemento dentro del array data, varruye una fila (tr)
                 //y añade celdas con los campos de cada elemento del array.
-                $.each(data, function(i, item) {
-                        var $div = $('<div class="row resultadito">').append(
-                            // $('<div class="col m-2">').text(item.login),
-                            $('<div class="col m-2 columnita">').text(item.nombre),
-                            $('<div class="col m-2 columnita">').text(item.apellidos),
-                            $('<div class="col m-2 columnita">').text(item.email),
-                            $('<div class="">'),
-                            $('<div class="col m-2 columnita">').text(item.importe + "€"),
-                           $('<div class="col m-2 columnita">') 
-                            ); 
-                            $('.resultados').append($div);
-                    });
-                    _tablaCheck();
-                }
-            }).fail( function( jqXHR, textStatus, errorThrown ) {
-                $("#errorbd").css("display","block"); 
-            });
-        }
-        
-    var _limpiarFiltros = function(){
-        var $filter = $('#limpiar_filtros');
-        var $input = $('input');
+                $.each(data, function (i, item) {
 
-        $filter.on('click',function(){
+                    const $div = $('<div class="row resultadito">').append(
+                        $('<div class="col m-2 columnita">').text(item.nombre),
+                        $('<div class="col m-2 columnita">').text(item.apellidos),
+                        $('<div class="col m-2 columnita">').text(item.email),
+                        $('<div class="">'),
+                        $('<div class="col m-2 columnita">').text(item.importe + "€"),
+                        $('<div class="col m-2 columnita">')
+                    );
 
-            $input.val('').trigger('keyup');
-             
-         });
+                    $results.append($div);
+                });
+                _tablaCheck();
+            }
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            $errorbd.removeClass("d-none");
+        });
     }
 
-    var _controlFiltros = function(){
-        $('.filterable .filters input').keyup(function(e){
-            /* Ignore tab key */
-            var code = e.keyCode || e.which;
+    /*
+    * Vacia todos los filtros
+    */
+    const _limpiarFiltros = function () {
+        const $filter = $('#limpiar_filtros');
+        const $input = $('input');
+
+        $filter.on('click', function () {
+
+            $input.val('').trigger('keyup');
+
+        });
+    }
+
+    /*
+    * Controlador de los filtros
+    */
+    const _controlFiltros = function () {
+
+        const $empty = $("#no-result");
+        $('.filterable .filters input').keyup(function (e) {
+
+            /* Ignorar tabulador */
+            const code = e.keyCode || e.which;
             if (code == '9') return;
-            /* Useful DOM data and selectors */
-            var $input = $(this),
-            inputContent = $input.val().toLowerCase(),
-            $panel = $input.parents('.filterable'),
-            column = $panel.find('.filters div').index($input.parents('div')),
-            $tabla = $panel.find('.resultados'),
-            $rows = $tabla.find('.resultadito');
-            /* Dirtiest filter function ever ;) */
-            var $filteredRows = $rows.filter(function(){
-                var value = $(this).find('.columnita').eq(column).text().toLowerCase();
+
+            /* selectores */
+            const $input = $(this),
+                inputContent = $input.val().toLowerCase(),
+                $panel = $input.parents('.filterable'),
+                column = $panel.find('.filters div').index($input.parents('div')),
+                $tabla = $panel.find('.resultados'),
+                $rows = $tabla.find('.resultadito');
+
+            /* Filtro pocho  */
+            const $filteredRows = $rows.filter(function () {
+                const value = $(this).find('.columnita').eq(column).text().toLowerCase();
                 return value.indexOf(inputContent) === -1;
             });
-            /* Clean previous no-result if exist */
-            $tabla.find('.no-result').remove();
-            /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+
+            /* limpiar error */
+            $tabla.find('.no-result').addClass("d-none");
+
+            /* Muestra las filas y oculta las filtradas */
             $rows.show();
             $filteredRows.hide();
-            /* Prepend no-result row if all rows are filtered */
+
+            /* Checkeo de si esta vacio */
             if ($filteredRows.length === $rows.length) {
-                $("#no-result").css("display","block");
-            }else{
-                $("#no-result").css("display","none");
+                $empty.removeClass("d-none");
+            } else {
+                $empty.addClass("d-none");
             }
         });
     }

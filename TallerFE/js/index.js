@@ -1,41 +1,51 @@
-const Index = function(){
+const Index = function () {
 
     const handler = function (json) {
         _login();
     };
 
-    const _login = function(){
+    /*
+    * Control del login
+    */
+    const _login = function () {
+        //Divs de errores
+        const $error = $("#error");
+        const $errorbd = $("#errorbd");
+        const $empty = $("#campos_vacios");
 
-        $("#acceder").click(function(e){
-            // e.preventDefault();
-    
+        $("#acceder").click(function (e) {
+
+            //Valores ingresados por el usuario
             const $username = $("#username").val().trim();
             const $password = $("#password").val().trim();
-            const $error = $("#error");
-            const $errorbd = $("#errorbd");
-            const $empty = $("#campos_vacios");
-    
-            if( $username != "" && $password != "" ){
+
+            //Se ocultan todos los errores
+            $error.addClass('d-none');
+            $errorbd.addClass('d-none');
+            $empty.addClass('d-none');
+            
+            //Comprobación de que no esten vacios los campos
+            if ($username != "" && $password != "") {
                 $.ajax({
                     url: 'https://localhost:44349/login',
                     dataType: 'json',
                     type: 'post',
                     contentType: 'application/json',
-                    data: JSON.stringify({login:$username,password:$password}),
-                    success: function(data, status){
-                        //alert("Data: " + data + "\nStatus: " + status);
-                        if(data){ 
+                    data: JSON.stringify({ login: $username, password: $password }),
+                    success: function (data, status) {
+                        
+                        if (data) {
                             window.location.href = "resumen_ventas.html";
                         } else {
-                            $error.css("display","block");
+                            $error.toggleClass('d-none');
                         }
-                        
-                    }                
-                }).fail( function( jqXHR, textStatus, errorThrown ) {
-                    $errorbd.css("display","block");
+
+                    }
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    $errorbd.toggleClass('d-none');
                 });
-            }else {
-                $empty.css("display","block");
+            } else {
+                $empty.toggleClass('d-none');
             }
         });
     }
