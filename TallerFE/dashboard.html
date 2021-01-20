@@ -41,7 +41,7 @@
 
         <!-- PAGE CONTAINER-->
         <div class="container">
-                <!-- MAIN CONTENT-->
+            <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -49,7 +49,7 @@
                             <div class="col-md-12 m-4">
                                 <div class="overview-wrap d-flex justify-content-center">
                                     <h1 class="text-white bienvenido_jefe">Bienvenido Jefaso</h2>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -61,22 +61,27 @@
                                     <div class="au-card-inner">
                                         <h3 class=" tm-b-5">Tu perfil</h3>
                                         <div class="row no-gutters">
-                                            <div style="flex-direction: column;" class="col-xl-6 my-2 d-flex justify-content-around">
-                                            
-                                                <p><span class="font-weight-bold">Nombre: </span><span id="nombre_perfil"></span></p>
-                                                <p><span class="font-weight-bold">Usuario: </span><span id="usuario_perfil"></span></p>
+                                            <div style="flex-direction: column;"
+                                                class="col-xl-6 my-2 d-flex justify-content-around">
+
+                                                <p><span class="font-weight-bold">Nombre: </span><span
+                                                        id="nombre_perfil"></span></p>
+                                                <p><span class="font-weight-bold">Usuario: </span><span
+                                                        id="usuario_perfil"></span></p>
                                                 <p><span class="font-weight-bold">Teléfono: </span>666999666</p>
-                                                <p><span class="font-weight-bold">E-mail: </span><span id="email_perfil"></span></p>
-                                                
-                                   
+                                                <p><span class="font-weight-bold">E-mail: </span><span
+                                                        id="email_perfil"></span></p>
+
+
                                             </div>
                                             <div class="col-xl-6 d-flex justify-content-end">
-                                              
-                                                        <img src="assets/jefe.png" class="img-thumbnail foto" alt="No hay imagen disponible">
-                                                        
-                                                
+
+                                                <img src="assets/jefe.png" class="img-thumbnail foto"
+                                                    alt="No hay imagen disponible">
+
+
                                             </div>
-                                            <button class="btn btn-primary">Editar perfil</button>
+                                            <button class="btn btn-primary" onclick="aviso()">Editar perfil</button>
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +120,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
 
                         <div class="row m-t-25">
@@ -132,7 +137,8 @@
                                             </div>
                                         </div>
                                         <div class="overview-chart p-4 d-flex justify-content-end">
-                                            <span class="text-white align-self-end enlaces"><a class="enlaces text-white" href="#">Ver lista de empleados</a>
+                                            <span class="text-white align-self-end enlaces"><a
+                                                    class="enlaces text-white" href="javascript:aviso()">Ver lista de empleados</a>
                                             </span>
                                         </div>
                                     </div>
@@ -151,7 +157,8 @@
                                             </div>
                                         </div>
                                         <div class="overview-chart p-4 d-flex justify-content-end">
-                                            <span class="text-white align-self-end enlaces"><a class="enlaces text-white" href="#">Ver lista de vehículos</a>
+                                            <span class="text-white align-self-end enlaces"><a
+                                                    class="enlaces text-white" href="javascript:aviso()">Ver lista de vehículos</a>
                                             </span>
                                         </div>
                                     </div>
@@ -170,7 +177,8 @@
                                             </div>
                                         </div>
                                         <div class="overview-chart px-2 py-4 d-flex justify-content-end">
-                                            <span class="text-white align-self-end enlaces"><a class="enlaces text-white" href="#">Ver listado reparaciones</a>
+                                            <span class="text-white align-self-end enlaces"><a
+                                                    class="enlaces text-white" href="javascript:aviso()">Ver listado reparaciones</a>
                                             </span>
                                         </div>
                                     </div>
@@ -184,61 +192,67 @@
                                                 <i class="zmdi zmdi-balance"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>1.547.386€</h2>
-                                                <span>Ingresos en ventas</span>
+                                                <h2>750.500€</h2>
+                                                <span>Ingresos</span>
                                             </div>
                                         </div>
-                                        <div class="overview-chart p-4 d-flex justify-content-end">
-                                            <span class="text-white align-self-end enlaces"><a class="enlaces text-white" href="resumen_ventas.html">Ver resumen de ventas</a>
+                                        <div class="overview-chart px-2 py-4 d-flex justify-content-end">
+                                            <span class="text-white align-self-end enlaces"><a
+                                                    class="enlaces text-white" href="resumen_ventas.html">Ver resumen de
+                                                    ventas</a>
                                             </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                      
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p class="text-white">Copyright © 2021 Daniel Delgado y Álvaro Lara. Todos los derechos reservados.</p>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="copyright">
+                                        <p class="text-white">Copyright © 2021 Daniel Delgado y Álvaro Lara. Todos los
+                                            derechos reservados.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- END MAIN CONTENT-->
+                <!-- END PAGE CONTAINER-->
             </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
+
         </div>
 
-    </div>
+        <!-- Jquery JS-->
+        <script src="vendor2/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap JS-->
+        <script src="vendor2/bootstrap-4.1/popper.min.js"></script>
+        <script src="vendor2/bootstrap-4.1/bootstrap.min.js"></script>
+        <!-- Vendor JS       -->
+        <script src="vendor2/slick/slick.min.js">
+        </script>
+        <script src="vendor2/wow/wow.min.js"></script>
+        <script src="vendor2/animsition/animsition.min.js"></script>
+        <script src="vendor2/bootstrap-progressbar/bootstrap-progressbar.min.js">
+        </script>
+        <script src="vendor2/counter-up/jquery.waypoints.min.js"></script>
+        <script src="vendor2/counter-up/jquery.counterup.min.js">
+        </script>
+        <script src="vendor2/circle-progress/circle-progress.min.js"></script>
+        <script src="vendor2/perfect-scrollbar/perfect-scrollbar.js"></script>
+        <script src="vendor2/chartjs/Chart.bundle.min.js"></script>
+        <script src="vendor2/select2/select2.min.js">
+        </script>
 
-    <!-- Jquery JS-->
-    <script src="vendor2/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="vendor2/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor2/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="vendor2/slick/slick.min.js">
-    </script>
-    <script src="vendor2/wow/wow.min.js"></script>
-    <script src="vendor2/animsition/animsition.min.js"></script>
-    <script src="vendor2/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="vendor2/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor2/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="vendor2/circle-progress/circle-progress.min.js"></script>
-    <script src="vendor2/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="vendor2/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor2/select2/select2.min.js">
-    </script>
-
-    <!-- Main JS-->
-    <script src="js/main.js"></script>
+        <!-- Main JS-->
+        <script src="js/main.js"></script>
 
 </body>
 
 </html>
 <!-- end document-->
+<script>
+    var aviso = function(){
+        alert("Esta función se encuentra en desarrollo");
+    }
+</script>

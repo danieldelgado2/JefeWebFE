@@ -2462,7 +2462,6 @@ section {
 }
 
 .enlaces:hover {
-   font-weight: bold;
    text-decoration: underline;
 }
 .has-noti > i:after {
