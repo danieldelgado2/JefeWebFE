@@ -44,7 +44,7 @@ const Ventas = function () {
                         $('<div class="col m-2 columnita">').text(item.email),
                         $('<div class="">'),
                         $('<div class="col m-2 columnita">').text(item.importe + "€"),
-                        $('<div class="col m-2 columnita"><button class="btn btn-info">Ver empleado</button>"')
+                        $('<div class="col m-2 columnita"><button class="btn btn-info" onclick=aviso()>Ver empleado</button>"')
                     );
 
                     $results.append($div);
@@ -127,6 +127,11 @@ function volver(){
 
 function logOut(){
     window.location.href = "index.html";
+}
+
+
+function aviso (){
+    alert("Esta función se encuentra en desarrollo");
 }
 
 
